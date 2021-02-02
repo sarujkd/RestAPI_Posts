@@ -1,0 +1,33 @@
+package RestAssured_GetMethod;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+
+public class ExtentReport {
+
+	protected static ExtentTest logger;
+	protected static ExtentReports report;
+	
+
+	/*
+	 * name of the Method: CreateReport BriedDescriotion : This will create a empty
+	 * Extent Report. Arguments : No Arguments Created By : Automation Team created
+	 * Date : 01/16/2021
+	 */
+	public static void CreateReport() {
+		String fileName = new SimpleDateFormat("'GetReport_'YYYYMMddHHmm'.html'").format(new Date());
+		String path = "Report/" + fileName;
+		report = new ExtentReports(path);
+	}
+	//close the report
+	public static void CloseReport() {
+		report.endTest(logger);
+		report.flush();
+	}
+
+	
+	
+}
